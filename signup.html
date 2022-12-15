@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale= 1.0">
+	<title>MUGISHA PortFolio</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<style>
+		
+
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "poppins", sans-serif;
+		}
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			background: #191919;
+		}
+		.wrapper{
+			width: 400px;
+			height: 600px;
+			background: #fff;
+			text-align: center;
+			border-radius: 5px;
+			padding: 40px 30px 50px 30px;
+		}
+		.wrapper header{
+			font-size: 35px;
+			font-weight: 600;
+			margin-bottom: 40px;
+			color: #191919;
+			position: relative;
+		}
+		.wrapper header::after{
+			content: '';
+			width: 60px;
+			height: 4px;
+			border-radius: 3px;
+			background: #191919;
+			position: absolute;
+			bottom: -12px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.wrapper form{
+			margin: 40px 0;
+		}
+		form .field{
+			margin-bottom: 20px;
+			width: 100%;
+			
+		}
+		form .field .error .shake{
+			animation: shake 0.3s ease-in-out;
+		}
+		@keyframes shake {
+			0%, 100%{
+				margin-left: 0;
+			}
+			20%, 80%{
+				margin-left: -12px;
+			}
+			40%, 60%{
+				margin-left: 12px;
+			}
+		}
+		form .field .input-area{
+			position: relative;
+		}
+		form input{
+			height: 50px;
+			width: 100%;
+			outline: none;
+			padding: 0 45px;
+			font-size: 18px;
+			border: 1px solid #bfbfbf;
+			border-bottom-width: 2px;
+			border-radius: 15px;
+		}
+		form .field .error{
+			border-color: #dc3545;
+		}
+		form input::placeholder{
+			color: #bfbfbf;
+			font-size: 17px;
+		}
+		form .field i{
+			position: absolute;
+			top: 50%;
+			font-size: 18px;
+			pointer-events: none;
+			transform: translateY(-50%);
+		}
+		form .field .icon{
+			left: 15px;
+			color: #bfbfbf;
+		}
+		form .field .error-icon{
+			right: 15px;
+			color: #dc3545;
+		}
+		form .field .error-txt{
+			color: #dc3545;
+			right: 15px;
+			text-align: left;
+		}
+		form .field .error{
+			display: none;
+		}
+		/*form .field .error{
+			display: block;
+		}*/
+		form .field .error input{
+			border-color: #dc3545;
+		}
+
+		form .pass-link{
+			text-align: left;
+			margin-top: -10px;
+		}
+		.wrapper a{
+			color: #5372f0;
+			text-decoration: none;
+			margin-left: 20px;
+		}
+		.wrapper a:hover{
+			text-decoration: underline;
+		}
+		form input[type="submit"]{
+			margin-top: 30px;
+			width: 50%;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			background: #f9004d;
+			transition: background 0.2s ease;
+			border-radius: 20px;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div class="wrapper">
+		<header>Sign Up</header>
+		<form action="#">
+			<div class="field email">
+				<div class="input-area">
+					<input type="text" placeholder="Full Names" required="required">
+					<i class="icon fa-solid fa-user"></i>
+					<i class="error error-icon fas fa-exclamation-circle"></i>
+				</div>
+				<div class="error error-txt">Email can't be blank</div>
+			</div>
+			<div class="field email">
+				<div class="input-area">
+					<input type="text" placeholder="Email Address" required="required">
+					<i class="icon fas fa-envelope"></i>
+					<i class="error error-icon fas fa-exclamation-circle"></i>
+				</div>
+				<div class="error error-txt">Email can't be blank</div>
+			</div>
+			<div class="field password">
+				<div class="input-area">
+					<input type="password" placeholder="Password" required="required">
+					<i class="icon fas fa-lock"></i>
+					<i class="error error-icon fas fa-exclamation-circle"></i>
+				</div>
+				<div class="error error-txt">Password can't be blank</div>
+			</div>
+			<div class="field password">
+				<div class="input-area">
+					<input type="password" placeholder="Confirm Password" required="required">
+					<i class="icon fas fa-lock"></i>
+					<i class="error error-icon fas fa-exclamation-circle"></i>
+				</div>
+				<div class="error error-txt">Password can't be blank</div>
+			</div>
+			
+			<input type="submit" value="Submit">
+		</form>
+		<div class="signup-link"><a href="signin.html">SignIn Now</a> If You Already Have An Account </div>
+	</div>
+
+
+	<script>
+		const form = document.querySelector("form"),
+		eField = form.querySelector(".email"),
+		eInput = eField.querySelector("input"),
+		pField = form.querySelector(".password"),
+		pInput = pField.querySelector("input");
+
+		form.onsubmit= (e)=>{
+			e.preventDefault();
+			if(eInput.value == ""){
+				eField.classList.add("shake");
+			}
+			if(pInput.value == ""){
+				pField.classList.add("shake");
+			}
+		}
+		
+	</script>
+
+</body>
+</html>
